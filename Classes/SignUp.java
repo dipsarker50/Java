@@ -39,6 +39,8 @@ public class SignUp implements ActionListener,FocusListener {
     JPanel panel;
     JFrame frame;
 
+    EmailValidator emailValidator;
+
     String full="Enter your fullname here...";
     String em="Enter your email here...";
     String pa="Enter your password here...";
@@ -50,7 +52,7 @@ public class SignUp implements ActionListener,FocusListener {
     public SignUp() {
 
         frame = new JFrame("Sign Up");
-        l_title = new JLabel("Welcome To MovieFlox");
+        l_title = new JLabel("Welcome To CINEHUB");
         l_fullname = new JLabel("FullName");
         l_email = new JLabel("Email Address");
         l_pass = new JLabel("Password");
@@ -65,6 +67,7 @@ public class SignUp implements ActionListener,FocusListener {
         t_phone = new JTextField(ph);
         t_answer = new JPasswordField(an);
         panel = new JPanel();
+        emailValidator =  new EmailValidator();
 
         toggleButton1 = new JToggleButton(new ImageIcon("Images/eye.png"));
         toggleButton2 = new JToggleButton(new ImageIcon("Images/eye.png"));
@@ -113,7 +116,7 @@ public class SignUp implements ActionListener,FocusListener {
 
         panel.setBounds(500, 0, 500, 700);
 
-        frame.setSize(1000, 800);
+        frame.setSize(1000, 700);
 
         b_signup.addActionListener(this);
         t_fullname.addFocusListener(this);
@@ -269,7 +272,7 @@ public class SignUp implements ActionListener,FocusListener {
                 showMessageDialog(null, "Please fill the box correctly.");
             } else {
 
-                if (email.contains("@gmail.com")) {
+                if (emailValidator.validate(getemail)) {
                     emailcheck++;
                 } else {
                     showMessageDialog(null, "Please Enter vaild Email.");

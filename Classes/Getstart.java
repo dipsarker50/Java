@@ -33,7 +33,7 @@ public class Getstart implements ActionListener{
 
 
 
-        frame.setSize(1000, 800);        
+        frame.setSize(1000, 700);        
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,7 +47,7 @@ public class Getstart implements ActionListener{
        
         if(e.getSource()==click){
 
-            new SignUp();
+            new SignIn();
             frame.setVisible(false);
         }
     }

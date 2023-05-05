@@ -20,6 +20,7 @@ public class SignIn extends JFrame implements ActionListener,FocusListener {
     JPasswordField password;
     JButton lgnbutton;
     JButton signupbutton;
+    JButton userButton;
     JLabel panel;
     JToggleButton toggleButton;
     Caret emailCaret;
@@ -29,13 +30,14 @@ public class SignIn extends JFrame implements ActionListener,FocusListener {
     public SignIn() {
 
         frame = new JFrame("Login");
-        title = new JLabel("MovieFlox");
+        title = new JLabel("CINEHUB");
         email_label = new JLabel("Email");
         pass_label = new JLabel("Password");
         email_TextField = new JTextField("Please enter your email...");
         password = new JPasswordField("Please enter your password...");
         lgnbutton = new JButton("Log In");
         signupbutton = new JButton("Sign Up");
+        userButton = new JButton("Admin Login");
         toggleButton = new JToggleButton(new ImageIcon("Images/eye.png"));
         background = new JPanel();
         href = new JLabel("<html><a href=\"#\">Forget Password?</a></html>");
@@ -71,6 +73,7 @@ public class SignIn extends JFrame implements ActionListener,FocusListener {
         toggleButton.setBounds(630, 385, 40, 20);
         lgnbutton.setBounds(350, 480, 280, 40);
         signupbutton.setBounds(20, 20, 80, 40);
+        userButton.setBounds(20, 600, 140, 50);
         background.setBounds(300, 120, 400, 500);
         href.setBounds(354, 408, 180, 40);
         panel.setBounds(0,0,1000,800);
@@ -81,10 +84,13 @@ public class SignIn extends JFrame implements ActionListener,FocusListener {
         password.addFocusListener(this);
         toggleButton.addActionListener(this);
         signupbutton.addActionListener(this);
+        userButton.addActionListener(this);
         password.setEchoChar((char) 0);
 
         lgnbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         href.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        signupbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        userButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         email_TextField.setForeground(Color.gray);
         password.setForeground(Color.gray);
@@ -115,6 +121,7 @@ public class SignIn extends JFrame implements ActionListener,FocusListener {
         frame.add(href);
         frame.add(toggleButton);
         frame.add(signupbutton);
+        frame.add(userButton);
 
         Font newFont = new Font("Arial", Font.PLAIN, 30);
 
@@ -258,10 +265,15 @@ public class SignIn extends JFrame implements ActionListener,FocusListener {
             }
            }
 
-           if(e.getSource()==signupbutton){
+           else if(e.getSource()==signupbutton){
               new SignUp();
               frame.setVisible(false);
            }
+
+           else if(e.getSource()==userButton){
+            new AdminSignIn();
+            frame.setVisible(false);
+         }
 
         
 

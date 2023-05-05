@@ -1,13 +1,7 @@
 package Classes;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-
+import java.nio.file.*;
+import javax.swing.*;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class Details{
@@ -31,6 +25,7 @@ public class Details{
                     case 1:
                         for (int i = 0; i < check; i++) {
                             String line = Files.readAllLines(Paths.get(path)).get(i);
+                            
                             if(line.equals(username)){
                                 String line1 = Files.readAllLines(Paths.get(path)).get(i-1);
                                 bufferedReader.close();

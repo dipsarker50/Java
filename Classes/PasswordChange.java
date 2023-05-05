@@ -28,7 +28,7 @@ public class PasswordChange implements ActionListener,FocusListener{
         user = username;
 
         frame = new JFrame("Password Recovery");
-        title = new JLabel("MovieFlox");
+        title = new JLabel("CINEHUB");
         pass_label = new JLabel("Password");
         conpass_label = new JLabel("Confirm Password");
         pass_TextField = new JPasswordField("Enter your password...");

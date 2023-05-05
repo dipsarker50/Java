@@ -1,0 +1,24 @@
+==================================
+start
+movie1path:MovieImage/Movie1/Movie1.jpeg
+movie2path:MovieImage/Movie2/Movie2.jpeg
+movie3path:MovieImage/Movie3/Movie3.jpeg
+movie4path:MovieImage/Movie4/Movie4.jpeg
+==================================
+
+==================================
+start2
+movie1name:Money Heist
+movie2name:Spider-Man
+movie3name:Din the day
+movie4name:RRR
+==================================
+
+==================================
+start3
+slider1:Images/Slider/0.jpg
+slider2:Images/Slider/3.jpg
+slider3:Images/Slider/2.jpg
+slider4:Images/Slider/3.jpg
+==================================
+
