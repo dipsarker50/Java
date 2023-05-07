@@ -1,7 +1,6 @@
 package Classes;
 
 import javax.swing.*;
-import javax.swing.text.Caret;
 import java.awt.*;
 import java.awt.event.*;
 import static javax.swing.JOptionPane.showMessageDialog;

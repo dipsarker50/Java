@@ -2,24 +2,33 @@ package MovieClass;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+
 import javax.swing.*;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 import Classes.Dashboard;
-
-
 
 public class MovieUpdate extends MovieDetails implements ActionListener {
     
     private JFrame frame;
-    private JButton title;
-    private JButton movie1upload,movie2upload,movie3upload,movie4upload;
-    private JTextField movie1name,movie2name,movie3name,movie4name;
-    private JLabel movie1,movie2,movie3,movie4;
+    private JButton title,saveButton;
+    private JRadioButton radio1Button,radio2Button,radio3Button,radio4Button;
+    private JLabel radio1movie,radio2movie,radio3movie,radio4movie;
+    private JButton movie1upload;
+    private JTextField movie1name,priceTextField,genreTextField,yearTextField,ratingTextField;
+    private JLabel movie1,rating,price,year,genre;
     private JLabel slide1,slide2,slide3,slide4;
-    private JLabel movie1nametext,movie2nametext,movie3nametext,movie4nametext;
+    private JLabel movie1nametext;
     private JButton slide1upload,slide2upload,slide3upload,slide4upload;
     JPanel panel1,panel2;
     JLabel background;
+    MovieDetails movieDetails;
     String user;
 
     public MovieUpdate(){
@@ -28,92 +37,84 @@ public class MovieUpdate extends MovieDetails implements ActionListener {
        frame = new JFrame();
        title = new JButton("CINEHUB");
        background = new JLabel(new ImageIcon("Images/userbg.jpg"));
+       radio1Button = new JRadioButton();
+       radio2Button = new JRadioButton();
+       radio3Button = new JRadioButton();
+       radio4Button = new JRadioButton();
+       radio1movie = new JLabel("Movie 1");
+       radio2movie = new JLabel("Movie 2");
+       radio3movie = new JLabel("Movie 3");
+       radio4movie = new JLabel("Movie 4");
        movie1upload = new JButton("Upload");
-       movie2upload = new JButton("Upload");
-       movie3upload = new JButton("Upload");
-       movie4upload = new JButton("Upload");
-       movie1 = new JLabel("Movie1 >");
-       movie2 = new JLabel("Movie2 >");
-       movie3 = new JLabel("Movie3 >");
-       movie4 = new JLabel("Movie4 >");
-       slide1upload = new JButton("Upload");
-       slide2upload = new JButton("Upload");
-       slide3upload = new JButton("Upload");
-       slide4upload = new JButton("Upload");
-       slide1 = new JLabel("slide1 >");
-       slide2 = new JLabel("slide2 >");
-       slide3 = new JLabel("slide3 >");
-       slide4 = new JLabel("slide4 >");
+       movie1 = new JLabel("Change Picture");
        movie1name = new JTextField();
-       movie2name = new JTextField();
-       movie3name = new JTextField();
-       movie4name = new JTextField();
-       movie1nametext = new JLabel("Movie1 Name");
-       movie2nametext = new JLabel("Movie2 Name");
-       movie3nametext = new JLabel("Movie3 Name");
-       movie4nametext = new JLabel("Movie4 Name");
+       ratingTextField = new JTextField();
+       priceTextField = new JTextField();
+       yearTextField = new JTextField();
+       genreTextField = new JTextField();
+       movie1nametext = new JLabel("Change Name");
+       rating = new JLabel("Change Rating");
+       price = new JLabel("Change Price");
+       genre = new JLabel("Change Genre");
+       year = new JLabel("ShowTime");
+       saveButton = new JButton("Edit");
+       movieDetails = new MovieDetails();
        panel1 = new JPanel();
        panel2 = new JPanel();
        
 
 
        title.setBounds(20, 20, 200, 50);
-       movie1upload.setBounds(370,120,80,40);
-       movie2upload.setBounds(370,180,80,40);
-       movie3upload.setBounds(370,240,80,40);
-       movie4upload.setBounds(370,300,80,40);
-       movie1.setBounds(250,120,100,40);
-       movie2.setBounds(250,180,100,40);
-       movie3.setBounds(250,240,100,40);
-       movie4.setBounds(250,300,100,40);
-       slide1upload.setBounds(700,120,80,40);
-       slide2upload.setBounds(700,180,80,40);
-       slide3upload.setBounds(700,240,80,40);
-       slide4upload.setBounds(700,300,80,40);
-       slide1.setBounds(580,120,100,40);
-       slide2.setBounds(580,180,100,40);
-       slide3.setBounds(580,240,100,40);
-       slide4.setBounds(580,300,100,40);
-       movie1name.setBounds(420,350,280,40);
-       movie2name.setBounds(420,420,280,40);
-       movie3name.setBounds(420,490,280,40);
-       movie4name.setBounds(420,560,280,40);
-       movie1nametext.setBounds(280,350,140,40);
-       movie2nametext.setBounds(280,420,140,40);
-       movie3nametext.setBounds(280,490,140,40);
-       movie4nametext.setBounds(280,560,140,40);
+       radio1Button.setBounds(160, 170, 40, 20);
+       radio2Button.setBounds(320, 170, 40, 20);
+       radio3Button.setBounds(480, 170, 40, 20);
+       radio4Button.setBounds(640, 170, 40, 20);
+       radio1movie.setBounds(200, 170, 100, 20);
+       radio2movie.setBounds(360, 170, 100, 20);
+       radio3movie.setBounds(520, 170, 100, 20);
+       radio4movie.setBounds(680, 170, 100, 20);
+       movie1upload.setBounds(330,310,80,40);
+       movie1.setBounds(220,310,140,40);
+       movie1name.setBounds(320,250,200,30);
+       movie1nametext.setBounds(220,250,140,30);
+       rating.setBounds(220,370,140,30);
+       genre.setBounds(220,430,140,30);
+       price.setBounds(220,490,140,30);
+       year.setBounds(220,550,140,30);
+       ratingTextField.setBounds(320,370,200,30);
+       genreTextField.setBounds(320,430,200,30);
+       priceTextField.setBounds(320,490,200,30);
+       yearTextField.setBounds(320,550,200,30);
+       saveButton.setBounds(600,370,80,40);
        panel1.setBounds(0, 2, 1000, 80);
-       panel2.setBounds(150, 100, 700, 540);
+       panel2.setBounds(100, 100, 800, 540);
        background.setBounds(0, 0, 1000, 700);
+
 
        panel1.setBackground(new Color(0,0,0,140));
        panel2.setBackground(new Color(0,0,0,140));
 
        movie1.setForeground(Color.white);
-       movie2.setForeground(Color.white);
-       movie3.setForeground(Color.white);
-       movie4.setForeground(Color.white);
-       slide1.setForeground(Color.white);
-       slide2.setForeground(Color.white);
-       slide3.setForeground(Color.white);
-       slide4.setForeground(Color.white);
        movie1nametext.setForeground(Color.white);
-       movie2nametext.setForeground(Color.white);
-       movie3nametext.setForeground(Color.white);
-       movie4nametext.setForeground(Color.white);
+    
 
-       movie1.setFont(new Font("serif",Font.PLAIN,20));
-       movie2.setFont(new Font("serif",Font.PLAIN,20));
-       movie3.setFont(new Font("serif",Font.PLAIN,20));
-       movie4.setFont(new Font("serif",Font.PLAIN,20));
-       slide1.setFont(new Font("serif",Font.PLAIN,20));
-       slide2.setFont(new Font("serif",Font.PLAIN,20));
-       slide3.setFont(new Font("serif",Font.PLAIN,20));
-       slide4.setFont(new Font("serif",Font.PLAIN,20));
-       movie1nametext.setFont(new Font("serif",Font.PLAIN,20));
-       movie2nametext.setFont(new Font("serif",Font.PLAIN,20));
-       movie3nametext.setFont(new Font("serif",Font.PLAIN,20));
-       movie4nametext.setFont(new Font("serif",Font.PLAIN,20));
+       movie1.setFont(new Font("serif",Font.PLAIN,15));
+       movie1nametext.setFont(new Font("serif",Font.PLAIN,15));
+       radio1movie.setForeground(Color.white);
+       radio2movie.setForeground(Color.white);
+       radio3movie.setForeground(Color.white);
+       radio4movie.setForeground(Color.white);
+       rating.setForeground(Color.white);
+       genre.setForeground(Color.white);
+       price.setForeground(Color.white);
+       year.setForeground(Color.white);
+
+       radio1movie.setFont(new Font("serif",Font.PLAIN,18));
+       radio2movie.setFont(new Font("serif",Font.PLAIN,18));
+       radio3movie.setFont(new Font("serif",Font.PLAIN,18));
+       radio4movie.setFont(new Font("serif",Font.PLAIN,18));
+   
+       
 
        Font font = title.getFont();
        int fontSize = font.getSize() + 15; // Increase font size by 5
@@ -125,59 +126,63 @@ public class MovieUpdate extends MovieDetails implements ActionListener {
         title.setForeground(Color.RED);
         title.setBorder(BorderFactory.createEmptyBorder());
         title.setContentAreaFilled(false);
-		title.setFocusPainted(false);
+	 	  title.setFocusPainted(false);
 
         movie1upload.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        movie2upload.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        movie3upload.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        movie4upload.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        slide1upload.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        slide2upload.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        slide3upload.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        slide4upload.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        saveButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+   
 
 
 
         title.addActionListener(this);
         movie1upload.addActionListener(this);
-        movie2upload.addActionListener(this);
-        movie3upload.addActionListener(this);
-        movie4upload.addActionListener(this);
-        slide1upload.addActionListener(this);
-        slide2upload.addActionListener(this);
-        slide3upload.addActionListener(this);
-        slide4upload.addActionListener(this);
+        saveButton.addActionListener(this);
+        radio1Button.addActionListener(this);
+        radio2Button.addActionListener(this);
+        radio3Button.addActionListener(this);
+        radio4Button.addActionListener(this);
+
+        genreTextField.setEditable(false);
+        priceTextField.setEditable(false);
+        movie1name.setEditable(false);
+        yearTextField.setEditable(false);
+        priceTextField.setEditable(false);
+        ratingTextField.setEditable(false);
 
 
-        background.add(title);
-        background.add(movie1upload);
-        background.add(movie2upload);
-        background.add(movie3upload);
-        background.add(movie4upload);
-        background.add(movie1);
-        background.add(movie2);
-        background.add(movie3);
-        background.add(movie4);
-        background.add(slide1upload);
-        background.add(slide2upload);
-        background.add(slide3upload);
-        background.add(slide4upload);
-        background.add(slide1);
-        background.add(slide2);
-        background.add(slide3);
-        background.add(slide4);
+
+
+
+       
+         background.add(title);
+         background.add(radio1Button);
+         background.add(radio2Button);
+         background.add(radio3Button);
+         background.add(radio4Button);
+         background.add(radio1movie);
+         background.add(radio2movie);
+         background.add(radio3movie);
+         background.add(radio4movie);
+         background.add(movie1upload);
+         background.add(movie1);
+         background.add(rating);
+         background.add(price);
+         background.add(genre);
+         background.add(year);
+         background.add(ratingTextField);
+         background.add(priceTextField);
+         background.add(genreTextField);
+         background.add(yearTextField);
+         background.add(saveButton);
+       
         background.add(movie1name);
-        background.add(movie2name);
-        background.add(movie3name);
-        background.add(movie4name);
+        
         background.add(movie1nametext);
-        background.add(movie2nametext);
-        background.add(movie3nametext);
-        background.add(movie4nametext);
-        background.add(panel1);
+ 
         background.add(panel2);
 
         frame.add(background);
+
 
         frame.setSize(1000, 700);        
         frame.setLayout(null);
@@ -192,6 +197,275 @@ public class MovieUpdate extends MovieDetails implements ActionListener {
             new Dashboard(user);
             
         }
+
+        else if(e.getSource()==radio1Button){
+            if(radio1Button.isSelected()){
+               radio2Button.setSelected(false);
+               radio3Button.setSelected(false);
+               radio4Button.setSelected(false);
+
+               genreTextField.setEditable(false);
+               priceTextField.setEditable(false);
+               movie1name.setEditable(false);
+               yearTextField.setEditable(false);
+               ratingTextField.setEditable(false);
+
+               movie1name.setText(movieDetails.findMovieName(1));
+               ratingTextField.setText(movieDetails.findMovieRating(1));
+               genreTextField.setText(movieDetails.findMovieGenre(1));
+               priceTextField.setText(movieDetails.findMoviePrice(1));
+               yearTextField.setText(movieDetails.findMovieYear(1));
+
+            }
+
+            else if(radio1Button.isSelected()==false){
+               movie1name.setText("");
+               ratingTextField.setText("");
+               genreTextField.setText("");
+               priceTextField.setText("");
+               yearTextField.setText("");
+            }
+        }
+
+        else if(e.getSource()==radio2Button){
+            if(radio2Button.isSelected()){
+               radio1Button.setSelected(false);
+               radio3Button.setSelected(false);
+               radio4Button.setSelected(false);
+
+               genreTextField.setEditable(false);
+               priceTextField.setEditable(false);
+               movie1name.setEditable(false);
+               yearTextField.setEditable(false);
+               ratingTextField.setEditable(false);
+
+               movie1name.setText(movieDetails.findMovieName(2));
+               ratingTextField.setText(movieDetails.findMovieRating(2));
+               genreTextField.setText(movieDetails.findMovieGenre(2));
+               priceTextField.setText(movieDetails.findMoviePrice(2));
+               yearTextField.setText(movieDetails.findMovieYear(2));
+            }
+
+            else if(radio1Button.isSelected()==false){
+               movie1name.setText("");
+               ratingTextField.setText("");
+               genreTextField.setText("");
+               priceTextField.setText("");
+               yearTextField.setText("");
+            }
+        }
+
+        else if(e.getSource()==radio3Button){
+            if(radio3Button.isSelected()){
+               radio1Button.setSelected(false);
+               radio2Button.setSelected(false);
+               radio4Button.setSelected(false);
+
+               genreTextField.setEditable(false);
+               priceTextField.setEditable(false);
+               movie1name.setEditable(false);
+               yearTextField.setEditable(false);
+               ratingTextField.setEditable(false);
+
+               movie1name.setText(movieDetails.findMovieName(3));
+               ratingTextField.setText(movieDetails.findMovieRating(3));
+               genreTextField.setText(movieDetails.findMovieGenre(3));
+               priceTextField.setText(movieDetails.findMoviePrice(3));
+               yearTextField.setText(movieDetails.findMovieYear(3));
+            }
+
+            else if(radio1Button.isSelected()==false){
+               movie1name.setText("");
+               ratingTextField.setText("");
+               genreTextField.setText("");
+               priceTextField.setText("");
+               yearTextField.setText("");
+            }
+         }
+
+         else if(e.getSource()==radio4Button){
+            if(radio4Button.isSelected()){
+               radio1Button.setSelected(false);
+               radio2Button.setSelected(false);
+               radio3Button.setSelected(false);
+
+               genreTextField.setEditable(false);
+               priceTextField.setEditable(false);
+               movie1name.setEditable(false);
+               yearTextField.setEditable(false);
+               ratingTextField.setEditable(false);
+
+               movie1name.setText(movieDetails.findMovieName(4));
+               ratingTextField.setText(movieDetails.findMovieRating(4));
+               genreTextField.setText(movieDetails.findMovieGenre(4));
+               priceTextField.setText(movieDetails.findMoviePrice(4));
+               yearTextField.setText(movieDetails.findMovieYear(1));
+            }
+
+            else if(radio1Button.isSelected()==false){
+               movie1name.setText("");
+               ratingTextField.setText("");
+               genreTextField.setText("");
+               priceTextField.setText("");
+               yearTextField.setText("");
+            }
+         }
+
+        
+
+        else if (e.getSource() == saveButton) {
+
+         if (saveButton.getText().equals("Edit")) {
+
+             genreTextField.setEditable(true);
+             movie1name.setEditable(true);
+             yearTextField.setEditable(true);
+             priceTextField.setEditable(true);
+             ratingTextField.setEditable(true);
+             
+
+
+
+
+             saveButton.setText("Save");
+
+         } else if (saveButton.getText().equals("Save")) {
+                 
+
+             if ((genreTextField.getText().isEmpty()==false) && (priceTextField.getText().isEmpty()==false) && (ratingTextField.getText().isEmpty()==false) && (yearTextField.getText().isEmpty()==false) && (radio1Button.isSelected()||radio1Button.isSelected()||radio2Button.isSelected()||radio3Button.isSelected()||radio4Button.isSelected())) {
+
+               if(radio1Button.isSelected()){
+
+                  movieDetails.changeMovieName(1, movie1name.getText());
+                  movieDetails.changeMovieRating(1, ratingTextField.getText());
+                  movieDetails.changeMoviePrice(1, priceTextField.getText());
+                  movieDetails.changeMovieGenre(1, genreTextField.getText());
+                  movieDetails.changeMovieYear(1, yearTextField.getText());
+                  showMessageDialog(null, "Succesfully Updated.");
+
+               }
+               else if(radio2Button.isSelected()){
+                  movieDetails.changeMovieName(2, movie1name.getText());
+                  movieDetails.changeMovieRating(2, ratingTextField.getText());
+                  movieDetails.changeMoviePrice(2, priceTextField.getText());
+                  movieDetails.changeMovieGenre(2, genreTextField.getText());
+                  movieDetails.changeMovieYear(2, yearTextField.getText());
+                  showMessageDialog(null, "Succesfully Updated.");
+
+               }
+
+               else if(radio3Button.isSelected()){
+                  movieDetails.changeMovieName(3, movie1name.getText());
+                  movieDetails.changeMovieRating(3, ratingTextField.getText());
+                  movieDetails.changeMoviePrice(3, priceTextField.getText());
+                  movieDetails.changeMovieGenre(3, genreTextField.getText());
+                  movieDetails.changeMovieYear(3, yearTextField.getText());
+                  showMessageDialog(null, "Succesfully Updated.");
+
+               }
+
+               else if(radio4Button.isSelected()){
+                  movieDetails.changeMovieName(4, movie1name.getText());
+                  movieDetails.changeMovieRating(4, ratingTextField.getText());
+                  movieDetails.changeMoviePrice(4, priceTextField.getText());
+                  movieDetails.changeMovieGenre(4, genreTextField.getText());
+                  movieDetails.changeMovieYear(4, yearTextField.getText());
+                  showMessageDialog(null, "Succesfully Updated.");
+
+               }
+               else{
+                  showMessageDialog(null, "Not Updated");
+               }
+
+               
+               
+
+               
+
+               genreTextField.setEditable(false);
+               movie1name.setEditable(false);
+               yearTextField.setEditable(false);
+               priceTextField.setEditable(false);
+               ratingTextField.setEditable(false);
+
+               
+               
+
+
+               saveButton.setText("Edit");
+                 
+
+             } else {
+                 showMessageDialog(null, "Not Updated");
+             }
+
+         }
+
+     }
+
+     if (e.getSource() == movie1upload) {
+      JFileChooser fileChooser = new JFileChooser();
+      int result = fileChooser.showOpenDialog(frame);
+
+      if (result == JFileChooser.APPROVE_OPTION) {
+          File file = fileChooser.getSelectedFile();
+          Path filePath = Paths.get(file.getAbsolutePath());
+
+          Path destPath=Paths.get("");
+          int flag = 0;
+          
+          if(radio1Button.isSelected()){
+            destPath = Paths.get("MovieImage/Movie1/"+ file.getName());
+            movieDetails.changeMoviePath(1, destPath.toString());
+            flag++;
+
+          }
+          else if(radio2Button.isSelected()){
+            destPath = Paths.get("MovieImage/Movie2/"+ file.getName());
+            movieDetails.changeMoviePath(2, destPath.toString());
+            flag++;
+
+          }
+          else if(radio3Button.isSelected()){
+            destPath = Paths.get("MovieImage/Movie3/"+ file.getName());
+            movieDetails.changeMoviePath(3, destPath.toString());
+            flag++;
+
+          }
+          else if(radio4Button.isSelected()){
+            destPath = Paths.get("MovieImage/Movie4/"+ file.getName());
+            movieDetails.changeMoviePath(4, destPath.toString());
+            flag++;
+
+          }
+
+          
+
+
+          if(flag==1){
+            try {
+               Files.copy(filePath, destPath, StandardCopyOption.REPLACE_EXISTING);
+           } catch (IOException ex) {
+               ex.printStackTrace();
+           }
+           showMessageDialog(null,"Upload Succesful");
+
+          }
+          else{
+            showMessageDialog(null,"Select the Movie First.");
+            
+          }
+
+          
+
+          
+         
+
+      }
+      
+
+  }
+
     }
 
 

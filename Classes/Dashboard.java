@@ -190,6 +190,18 @@ public class Dashboard extends Details implements ActionListener{
         sliderImage[3] = new ImageIcon(movieDetails.findSliderPath(4));
         sliderspace.setIcon(imageResize(0,sliderspace,sliderImage));
 
+        int delay = 3500; // 3.5 seconds
+        Timer timer = new Timer(delay, new ActionListener() {
+            int i = 0;
+            public void actionPerformed(ActionEvent e) {
+                i = (i + 1) % sliderImage.length;
+                sliderspace.setIcon(imageResize(i, sliderspace, sliderImage));
+                
+            }
+        });
+        timer.start();
+
+
 
         movieImage = new ImageIcon[4];
         movieImage[0] = new ImageIcon(movieDetails.findMoviePath(1));

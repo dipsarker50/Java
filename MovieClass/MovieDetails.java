@@ -3,7 +3,6 @@ package MovieClass;
 import java.io.*;
 import java.nio.file.*;
 
-import static javax.swing.JOptionPane.showMessageDialog;
 
 public class MovieDetails {
     
@@ -381,6 +380,518 @@ public class MovieDetails {
             else if(n==4){
                 oldLine ="slider4:"+this.findSliderPath(4);
                 newLine = "slider4:" + gotslider;
+            }
+            
+            
+            
+            
+                String fileContent = new String(Files.readAllBytes(path));
+                fileContent = fileContent.replaceAll(oldLine, newLine);
+                Files.write(path, fileContent.getBytes(), StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+            
+            } catch (IOException ex) {
+                    ex.printStackTrace();
+              } 
+
+    }
+
+    public String findMovieRating(int n){
+        String value="";
+         
+        try{
+
+            String path = "files/MovieUpdate.txt";
+                FileReader fileReader = new FileReader(path);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+                int check = 0;
+                while (bufferedReader.readLine() != null) {
+                    check++;
+                }
+
+                switch(n){
+
+                    case 1:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start4")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+1);
+                            bufferedReader.close();
+                            String movie1=line1.substring("movierating1:".length());
+                            value = movie1;
+
+                            
+                        }
+                        
+                    }
+
+                    break;
+
+                    case 2:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start4")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+2);
+                            bufferedReader.close();
+                            String movie2=line1.substring("movierating2:".length());
+                            value = movie2;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+                    case 3:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start4")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+3);
+                            bufferedReader.close();
+                            String movie3=line1.substring("movierating3:".length());
+                            value = movie3;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+                    case 4:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start4")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+4);
+                            bufferedReader.close();
+                            String movie4=line1.substring("movierating4:".length());
+                            value = movie4;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+
+                }
+
+
+        }
+
+        catch(Exception e){
+
+        }
+
+        return value;
+
+    }
+
+    public void changeMovieRating(int n,String gotName){
+        
+        try {
+            Path path = Paths.get("files/MovieUpdate.txt");
+            String oldLine="";
+            String newLine ="";
+
+            if(n==1){
+                oldLine = "movierating1:"+this.findMovieRating(1);
+                newLine = "movierating1:" + gotName;
+            }
+            else if(n==2){
+                oldLine ="movierating2:"+this.findMovieRating(2);
+                newLine = "movierating2:" + gotName;
+            }
+            else if(n==3){
+                oldLine ="movierating3:"+this.findMovieRating(3);
+                newLine = "movierating3:" + gotName;
+            }
+            else if(n==4){
+                oldLine ="movierating4:"+this.findMovieRating(4);
+                newLine = "movierating4:" + gotName;
+            }
+            
+            
+            
+            
+                String fileContent = new String(Files.readAllBytes(path));
+                fileContent = fileContent.replaceAll(oldLine, newLine);
+                Files.write(path, fileContent.getBytes(), StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+            
+            } catch (IOException ex) {
+                    ex.printStackTrace();
+              } 
+
+    }
+
+    public String findMoviePrice(int n){
+        String value="";
+         
+        try{
+
+            String path = "files/MovieUpdate.txt";
+                FileReader fileReader = new FileReader(path);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+                int check = 0;
+                while (bufferedReader.readLine() != null) {
+                    check++;
+                }
+
+                switch(n){
+
+                    case 1:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start5")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+1);
+                            bufferedReader.close();
+                            String movie1=line1.substring("movieprice1:".length());
+                            value = movie1;
+
+                            
+                        }
+                        
+                    }
+
+                    break;
+
+                    case 2:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start5")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+2);
+                            bufferedReader.close();
+                            String movie2=line1.substring("movieprice2:".length());
+                            value = movie2;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+                    case 3:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start5")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+3);
+                            bufferedReader.close();
+                            String movie3=line1.substring("movieprice3:".length());
+                            value = movie3;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+                    case 4:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start5")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+4);
+                            bufferedReader.close();
+                            String movie4=line1.substring("movieprice4:".length());
+                            value = movie4;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+
+                }
+
+
+        }
+
+        catch(Exception e){
+
+        }
+
+        return value;
+
+    }
+
+    public void changeMoviePrice(int n,String gotName){
+        
+        try {
+            Path path = Paths.get("files/MovieUpdate.txt");
+            String oldLine="";
+            String newLine ="";
+
+            if(n==1){
+                oldLine = "movieprice1:"+this.findMoviePrice(1);
+                newLine = "movieprice1:" + gotName;
+            }
+            else if(n==2){
+                oldLine ="movieprice2:"+this.findMoviePrice(2);
+                newLine = "movieprice2:" + gotName;
+            }
+            else if(n==3){
+                oldLine ="movieprice3:"+this.findMoviePrice(3);
+                newLine = "movieprice3:" + gotName;
+            }
+            else if(n==4){
+                oldLine ="movieprice4:"+this.findMoviePrice(4);
+                newLine = "movieprice4:" + gotName;
+            }
+            
+            
+            
+            
+                String fileContent = new String(Files.readAllBytes(path));
+                fileContent = fileContent.replaceAll(oldLine, newLine);
+                Files.write(path, fileContent.getBytes(), StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+            
+            } catch (IOException ex) {
+                    ex.printStackTrace();
+              } 
+
+    }
+
+    public String findMovieGenre(int n){
+        String value="";
+         
+        try{
+
+            String path = "files/MovieUpdate.txt";
+                FileReader fileReader = new FileReader(path);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+                int check = 0;
+                while (bufferedReader.readLine() != null) {
+                    check++;
+                }
+
+                switch(n){
+
+                    case 1:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start6")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+1);
+                            bufferedReader.close();
+                            String movie1=line1.substring("moviegenre1:".length());
+                            value = movie1;
+
+                            
+                        }
+                        
+                    }
+
+                    break;
+
+                    case 2:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start6")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+2);
+                            bufferedReader.close();
+                            String movie2=line1.substring("moviegenre2:".length());
+                            value = movie2;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+                    case 3:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start6")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+3);
+                            bufferedReader.close();
+                            String movie3=line1.substring("moviegenre3:".length());
+                            value = movie3;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+                    case 4:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start6")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+4);
+                            bufferedReader.close();
+                            String movie4=line1.substring("moviegenre4:".length());
+                            value = movie4;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+
+                }
+
+
+        }
+
+        catch(Exception e){
+
+        }
+
+        return value;
+
+    }
+
+    public void changeMovieGenre(int n,String gotName){
+        
+        try {
+            Path path = Paths.get("files/MovieUpdate.txt");
+            String oldLine="";
+            String newLine ="";
+
+            if(n==1){
+                oldLine = "moviegenre1:"+this.findMovieGenre(1);
+                newLine = "moviegenre1:" + gotName;
+            }
+            else if(n==2){
+                oldLine ="moviegenre2:"+this.findMovieGenre(2);
+                newLine = "moviegenre2:" + gotName;
+            }
+            else if(n==3){
+                oldLine ="moviegenre3:"+this.findMovieGenre(3);
+                newLine = "moviegenre3:" + gotName;
+            }
+            else if(n==4){
+                oldLine ="moviegenre4:"+this.findMovieGenre(4);
+                newLine = "moviegenre4:" + gotName;
+            }
+            
+            
+            
+            
+                String fileContent = new String(Files.readAllBytes(path));
+                fileContent = fileContent.replaceAll(oldLine, newLine);
+                Files.write(path, fileContent.getBytes(), StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+            
+            } catch (IOException ex) {
+                    ex.printStackTrace();
+              } 
+
+    }
+
+    public String findMovieYear(int n){
+        String value="";
+         
+        try{
+
+            String path = "files/MovieUpdate.txt";
+                FileReader fileReader = new FileReader(path);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+                int check = 0;
+                while (bufferedReader.readLine() != null) {
+                    check++;
+                }
+
+                switch(n){
+
+                    case 1:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start7")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+1);
+                            bufferedReader.close();
+                            String movie1=line1.substring("movieyear1:".length());
+                            value = movie1;
+
+                            
+                        }
+                        
+                    }
+
+                    break;
+
+                    case 2:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start7")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+2);
+                            bufferedReader.close();
+                            String movie2=line1.substring("movieyear2:".length());
+                            value = movie2;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+                    case 3:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start7")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+3);
+                            bufferedReader.close();
+                            String movie3=line1.substring("movieyear3:".length());
+                            value = movie3;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+                    case 4:
+                    for (int i = 0; i < check; i++) {
+                        String line = Files.readAllLines(Paths.get(path)).get(i);
+                        if(line.equals("start7")){
+                            String line1 = Files.readAllLines(Paths.get(path)).get(i+4);
+                            bufferedReader.close();
+                            String movie4=line1.substring("movieyear4:".length());
+                            value = movie4;
+
+                            
+                        }
+                        
+                    }
+                    break;
+
+
+                }
+
+
+        }
+
+        catch(Exception e){
+
+        }
+
+        return value;
+
+    }
+
+    public void changeMovieYear(int n,String gotName){
+        
+        try {
+            Path path = Paths.get("files/MovieUpdate.txt");
+            String oldLine="";
+            String newLine ="";
+
+            if(n==1){
+                oldLine = "movieyear1:"+this.findMovieYear(1);
+                newLine = "movieyear1:" + gotName;
+            }
+            else if(n==2){
+                oldLine ="movieyear2:"+this.findMovieYear(2);
+                newLine = "movieyear2:" + gotName;
+            }
+            else if(n==3){
+                oldLine ="movieyear3:"+this.findMovieYear(3);
+                newLine = "movieyear3:" + gotName;
+            }
+            else if(n==4){
+                oldLine ="movieyear4:"+this.findMovieYear(4);
+                newLine = "movieyear4:" + gotName;
             }
             
             

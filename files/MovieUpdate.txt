@@ -1,24 +1,50 @@
 ==================================
 start
-movie1path:MovieImage/Movie1/Movie1.jpeg
-movie2path:MovieImage/Movie2/Movie2.jpeg
-movie3path:MovieImage/Movie3/Movie3.jpeg
+movie1path:MovieImage/Movie1/profile_picture.png
+movie2path:MovieImage/Movie2/IMG20221023155807 copy.jpg
+movie3path:MovieImage/Movie3/IMG20221023160052 copy.jpg
 movie4path:MovieImage/Movie4/Movie4.jpeg
 ==================================
-
 ==================================
 start2
 movie1name:Money Heist
 movie2name:Spider-Man
-movie3name:Din the day
+movie3name:Flop 
 movie4name:RRR
 ==================================
-
 ==================================
 start3
 slider1:Images/Slider/0.jpg
 slider2:Images/Slider/3.jpg
 slider3:Images/Slider/2.jpg
 slider4:Images/Slider/3.jpg
+==================================
+==================================
+start4
+movierating1:8.8
+movierating2:demo2
+movierating3:5.5
+movierating4:demo4
+==================================
+==================================
+start5
+movieprice1:500
+movieprice2:demo2
+movieprice3:500
+movieprice4:demo4
+==================================
+==================================
+start6
+moviegenre1:horror
+moviegenre2:demo2
+moviegenre3:n/a
+moviegenre4:demo4
+==================================
+==================================
+start7
+movieyear1:2019
+movieyear2:demo2
+movieyear3:2025
+movieyear4:demo4
 ==================================
 
