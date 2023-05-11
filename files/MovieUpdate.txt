@@ -1,15 +1,15 @@
 ==================================
 start
-movie1path:MovieImage/Movie1/profile_picture.png
-movie2path:MovieImage/Movie2/IMG20221023155807 copy.jpg
+movie1path:MovieImage/Movie1/Admin.jpg
+movie2path:MovieImage/Movie2/download (1).jpeg
 movie3path:MovieImage/Movie3/IMG20221023160052 copy.jpg
 movie4path:MovieImage/Movie4/Movie4.jpeg
 ==================================
 ==================================
 start2
-movie1name:Money Heist
-movie2name:Spider-Man
-movie3name:Flop 
+movie1name:Evil Dead Rise
+movie2name:John Wick: Chapter 4
+movie3name:F
 movie4name:RRR
 ==================================
 ==================================
@@ -21,30 +21,30 @@ slider4:Images/Slider/3.jpg
 ==================================
 ==================================
 start4
-movierating1:8.8
+movierating1:7
 movierating2:demo2
 movierating3:5.5
-movierating4:demo4
+movierating4:5.4
 ==================================
 ==================================
 start5
 movieprice1:500
-movieprice2:demo2
+movieprice2:500
 movieprice3:500
 movieprice4:demo4
 ==================================
 ==================================
 start6
-moviegenre1:horror
-moviegenre2:demo2
+moviegenre1:supernatural horror
+moviegenre2:Action/Neo-noir
 moviegenre3:n/a
 moviegenre4:demo4
 ==================================
 ==================================
 start7
-movieyear1:2019
-movieyear2:demo2
+movieyear1:Sunday 3PM
+movieyear2:Monday,3PM
 movieyear3:2025
-movieyear4:demo4
+movieyear4:2019
 ==================================
 

@@ -405,6 +405,7 @@ public class MovieUpdate extends MovieDetails implements ActionListener {
 
      if (e.getSource() == movie1upload) {
       JFileChooser fileChooser = new JFileChooser();
+      fileChooser.setCurrentDirectory(new File("/Users/dipsarker/Documents/CSE/Semester2/project"));
       int result = fileChooser.showOpenDialog(frame);
 
       if (result == JFileChooser.APPROVE_OPTION) {

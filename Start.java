@@ -1,5 +1,6 @@
 import Classes.*;
 import MovieClass.MovieUpdate;
+import MovieClass.Payment;
 
 public class Start{
 
@@ -7,7 +8,11 @@ public class Start{
         
             // new Dashboard("Username:1@gmail.com");
             // new AdminSignIn();
-            new MovieUpdate();
+            new Dashboard("Username:12@gmail.com");
+            // TicketDetails a = new TicketDetails();
+            // a.findTicket();
+            // new TicketView();
+
     }
 
 }    

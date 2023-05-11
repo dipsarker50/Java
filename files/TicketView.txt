@@ -1,0 +1,24 @@
+====================
+Username:12@gmail.com
+TicketNumber:173319
+Movie Name:Evil Dead Rise
+ShowTime:Sunday 3PM
+Quantity:3
+TicketPrice:1500
+====================
+====================
+Username:12@gmail.com
+TicketNumber:680022
+Movie Name:John Wick: Chapter 4
+ShowTime:Monday,3PM
+Quantity:4
+TicketPrice:2000
+====================
+====================
+Username:rokan12@gmail.com
+TicketNumber:957054
+Movie Name:Flop 
+ShowTime:2025
+Quantity:2
+TicketPrice:1000
+====================

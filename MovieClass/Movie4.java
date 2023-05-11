@@ -1,37 +1,35 @@
 package MovieClass;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-
 import static javax.swing.JOptionPane.showMessageDialog;
 import Classes.Dashboard;
 
+public class Movie4 extends MovieDetails implements ActionListener {
 
-public class Movie1 extends MovieDetails implements ActionListener {
-    
     private JFrame frame;
     private JButton title,movieNameButton,buyJButton;
     JPanel panel1,panel2;
     JLabel background,moviepicLabel,movienameJLabel,ratingJLabel,genreJLabel,showTimeJLabel,ticketPriceJLabel,quantityJLabel;
     JTextField quanTextField;
     ImageIcon movie;
-    String usern;
+    String user;
 
-    public Movie1(String moviename,String user){
-       
-     usern = user;
+    public Movie4(String moviename,String user){
+
+        this.user = user;
 
        frame = new JFrame(moviename);
        title = new JButton("CINEHUB");
        background = new JLabel(new ImageIcon("Images/userbg.jpg"));
        moviepicLabel = new JLabel();
-       movieNameButton = new JButton(super.findMovieName(1));
-       movienameJLabel = new JLabel("Name : "+super.findMovieName(1));
-       ratingJLabel = new JLabel("IMDB Rating : "+super.findMovieRating(1));
-       genreJLabel = new JLabel("Genre : "+super.findMovieGenre(1));
-       showTimeJLabel = new JLabel("ShowTime : "+super.findMovieYear(1));
-       ticketPriceJLabel = new JLabel("Ticket Price : "+super.findMoviePrice(1)+" Tk");
+       movieNameButton = new JButton(super.findMovieName(4));
+       movienameJLabel = new JLabel("Name : "+super.findMovieName(4));
+       ratingJLabel = new JLabel("IMDB Rating : "+super.findMovieRating(4));
+       genreJLabel = new JLabel("Genre : "+super.findMovieGenre(4));
+       showTimeJLabel = new JLabel("ShowTime : "+super.findMovieYear(4));
+       ticketPriceJLabel = new JLabel("Ticket Price : "+super.findMoviePrice(4)+" Tk");
        quantityJLabel =new JLabel("Ticket Quantity : ");
        quanTextField = new JTextField();
        buyJButton = new JButton("Buy Ticket");
@@ -55,14 +53,14 @@ public class Movie1 extends MovieDetails implements ActionListener {
        panel2.setBounds(150, 100, 700, 540);
        background.setBounds(0, 0, 1000, 700);
 
+       panel1.setBackground(new Color(0,0,0,140));
+       panel2.setBackground(new Color(0,0,0,140));
+
        quanTextField.setForeground(Color.WHITE);
        quanTextField.setBackground(new Color(0,0,0,220));
        quanTextField.setBorder(BorderFactory.createEmptyBorder());
        quanTextField.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.red));
        quanTextField.setFont(new Font("serif",Font.PLAIN,20));
-
-       panel1.setBackground(new Color(0,0,0,140));
-       panel2.setBackground(new Color(0,0,0,140));
 
        movieNameButton.setForeground(new Color(211,211,211));
        movieNameButton.setFont(new Font("serif",Font.PLAIN,20));
@@ -103,7 +101,7 @@ public class Movie1 extends MovieDetails implements ActionListener {
         title.setContentAreaFilled(false);
 		title.setFocusPainted(false);
 
-        movie = new ImageIcon(super.findMoviePath(1));
+        movie = new ImageIcon(super.findMoviePath(4));
         moviepicLabel.setIcon(imageResize(moviepicLabel, movie));
 
 
@@ -133,44 +131,43 @@ public class Movie1 extends MovieDetails implements ActionListener {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        
 
     }
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==title){
-            new Dashboard(usern);
+            new Dashboard(user);
             frame.setVisible(false);
+
         }
         else if(e.getSource()== buyJButton){
-            
-            
             if(quanTextField.getText().isEmpty()){
-                 showMessageDialog(null,"Please Enter Your Ticket Quantity.");
-            }
-            try{
-                int value = Integer.parseInt(quanTextField.getText());
-                int value2 = Integer.parseInt(super.findMoviePrice(1));
-                String totalprice = String.valueOf(value*value2);
+                showMessageDialog(null,"Please Enter Your Ticket Quantity.");
+           }
+           try{
+               int value = Integer.parseInt(quanTextField.getText());
+               int value2 = Integer.parseInt(super.findMoviePrice(4));
+               String totalprice = String.valueOf(value*value2);
 
-                if(value<=4){
-                    new Payment(super.findMovieName(1), usern, totalprice, super.findMovieYear(1),value);
-                    frame.setVisible(false);
-                }
-                else if(value>4){
-                    showMessageDialog(null,"Maximum Quantity is 4.");
+               if(value<=4){
+                   new Payment(super.findMovieName(4), user, totalprice, super.findMovieYear(4),value);
+                   frame.setVisible(false);
+               }
+               else if(value>4){
+                   showMessageDialog(null,"Maximum Quantity is 4.");
 
-                }
+               }
 
 
-            }
-            catch(Exception ex){
-                if(quanTextField.getText().isEmpty()==false){
-                    showMessageDialog(null, "Please Enter only number.");
+           }
+           catch(Exception ex){
+               if(quanTextField.getText().isEmpty()==false){
+                   showMessageDialog(null, "Please Enter only number.");
 
-                }
+               }
 
-            }
-            
+           }
         }
     }
 
@@ -182,6 +179,4 @@ public class Movie1 extends MovieDetails implements ActionListener {
                 return scaledImageIcon;
         
     }
-
-
 }

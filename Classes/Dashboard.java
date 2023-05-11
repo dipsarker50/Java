@@ -2,9 +2,8 @@ package Classes;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-import MovieClass.Movie1;
-import MovieClass.MovieDetails;
+import MovieClass.*;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class Dashboard extends Details implements ActionListener{
     private JFrame frame;
@@ -16,7 +15,7 @@ public class Dashboard extends Details implements ActionListener{
     JButton title;
     JTextField searchField;
     JPanel panel1,panel2,panel3,panel4;
-    private String user;
+    String user;
     MovieDetails movieDetails;
     ImageIcon sliderImage[];
     ImageIcon movieImage[];
@@ -256,6 +255,10 @@ public class Dashboard extends Details implements ActionListener{
         noticeButton.addActionListener(this);
         supporButton.addActionListener(this);
         movie1name.addActionListener(this);
+        movie2name.addActionListener(this);
+        movie3name.addActionListener(this);
+        movie4name.addActionListener(this);
+        searchButton.addActionListener(this);
 
         frame.setSize(1000, 700);        
         frame.setLayout(null);
@@ -323,6 +326,50 @@ public class Dashboard extends Details implements ActionListener{
         else if(e.getSource()==movie1name){
             new Movie1(movie1name.getText(),user);
             frame.setVisible(false);
+        }
+
+        else if(e.getSource()==movie2name){
+            new Movie2(movie2name.getText(),user);
+            frame.setVisible(false);
+        }
+
+        else if(e.getSource()==movie3name){
+            new Movie3(movie3name.getText(),user);
+            frame.setVisible(false);
+        }
+
+        else if(e.getSource()==movie4name){
+            new Movie4(movie4name.getText(),user);
+            frame.setVisible(false);
+        }
+
+        else if(e.getSource()==ticketViewButton){
+            new TicketView(user);
+            frame.setVisible(false);
+
+        }
+
+        else if(e.getSource()==searchButton){
+            if(searchField.getText().equals(movie1name.getText())){
+                new Movie1(movie1name.getText(),user);
+                frame.setVisible(false);
+            }
+            else if(searchField.getText().equals(movie2name.getText())){
+                new Movie2(movie2name.getText(),user);
+                frame.setVisible(false);
+            }
+            else if(searchField.getText().equals(movie3name.getText())){
+                new Movie3(movie3name.getText(),user);
+                frame.setVisible(false);
+            }
+            else if(searchField.getText().equals(movie4name.getText())){
+                new Movie4(movie4name.getText(),user);
+                frame.setVisible(false);
+            }
+            else{
+                showMessageDialog(null,"No Movie Found");
+            }
+
         }
        
        
