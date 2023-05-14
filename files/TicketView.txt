@@ -22,3 +22,35 @@ ShowTime:2025
 Quantity:2
 TicketPrice:1000
 ====================
+====================
+Username:12@gmail.com
+TicketNumber:781011
+Movie Name:Evil Dead Rise
+ShowTime:Sunday 3PM
+Quantity:2
+TicketPrice:1000
+====================
+====================
+Username:12@gmail.com
+TicketNumber:756047
+Movie Name:John Wick: Chapter 4
+ShowTime:Monday,3PM
+Quantity:2
+TicketPrice:1000
+====================
+====================
+Username:12@gmail.com
+TicketNumber:447904
+Movie Name:F
+ShowTime:2025
+Quantity:1
+TicketPrice:500
+====================
+====================
+Username:12@gmail.com
+TicketNumber:441742
+Movie Name:Evil Dead Rise
+ShowTime:Sunday 3PM
+Quantity:2
+TicketPrice:1000
+====================
