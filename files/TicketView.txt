@@ -62,3 +62,11 @@ ShowTime:Sunday 3PM
 Quantity:4
 TicketPrice:2000
 ====================
+====================
+Username:12@gmail.com
+TicketNumber:449292
+Movie Name:RRR
+ShowTime:Sunday 3PM
+Quantity:1
+TicketPrice:600
+====================

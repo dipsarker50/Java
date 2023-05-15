@@ -106,7 +106,7 @@ public class AdminList implements ActionListener{
 
                 
                 
-                if(lines.contains("#delete!")==false){
+                if(lines.contains("#Delete!")==false){
                     if(lines.contains("Username:")){
                         String answer=lines.substring("Username:".length());
                         rows[0] = "                     "+answer;

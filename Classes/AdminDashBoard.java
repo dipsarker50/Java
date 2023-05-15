@@ -16,7 +16,7 @@ public class AdminDashBoard implements ActionListener{
     
     private JLabel  background,adminlbl,lbl;
     private JButton backbtn, exitbtn,refresh,pageName,logOut;
-    private JButton userList,userDelete,adminList,adminDelete,relaseUpdate,movieUpdate;
+    private JButton userList,userDelete,adminList,adminDelete,relaseUpdate,movieUpdate,addAdmin;
     private ImageIcon Homeicon, bg;
     private JPanel panel1,panel2;
 
@@ -31,7 +31,7 @@ public class AdminDashBoard implements ActionListener{
         
         
         //LOGO
-        Homeicon = new ImageIcon("images/logo.png");
+        // Homeicon = new ImageIcon("images/logo.png");
         
         //PROJECT NAME
         pageName = new JButton("CINEHUB");
@@ -151,7 +151,7 @@ public class AdminDashBoard implements ActionListener{
         movieUpdate.addActionListener(this);
 
         logOut = new JButton("Logout");
-        logOut.setBounds(450,350,100,40);
+        logOut.setBounds(450,440,100,40);
         logOut.setCursor(new Cursor(Cursor.HAND_CURSOR));
         logOut.setForeground(Color.red);
 		logOut.setFont(new Font("serif",Font.PLAIN,22));
@@ -159,6 +159,16 @@ public class AdminDashBoard implements ActionListener{
         logOut.setContentAreaFilled(false);
 		logOut.setFocusPainted(false);
         logOut.addActionListener(this);
+
+        addAdmin = new JButton("Add Admin");
+        addAdmin.setBounds(400,360,220,40);
+        addAdmin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        addAdmin.setForeground(new Color(211,211,211));
+		addAdmin.setFont(new Font("serif",Font.PLAIN,22));
+        addAdmin.setBorder(BorderFactory.createEmptyBorder());
+        addAdmin.setContentAreaFilled(false);
+		addAdmin.setFocusPainted(false);
+        addAdmin.addActionListener(this);
 
 
 
@@ -193,6 +203,7 @@ public class AdminDashBoard implements ActionListener{
         Frame.add(adminDelete);
         Frame.add(relaseUpdate);
         Frame.add(movieUpdate);
+        Frame.add(addAdmin);
         Frame.add(logOut);
         Frame.add(panel1);
         Frame.add(panel2);
@@ -200,7 +211,6 @@ public class AdminDashBoard implements ActionListener{
         
         
         
-        Frame.setIconImage(Homeicon.getImage());
         Frame.setSize(1000,700);
         Frame.setLayout(null);
         Frame.setLocationRelativeTo(null);
@@ -281,6 +291,19 @@ public class AdminDashBoard implements ActionListener{
             Frame.setVisible(false);
         }
         
+        else if(e.getSource()==addAdmin)
+        {
+            if(user.equals("owner@gmail.com")){
+                new AddAdmin(user);
+                Frame.setVisible(false);
+
+            }
+            else{
+                showMessageDialog(null,"You have no Access to \nuse this feature.");
+
+            }
+            
+        }
     }
     
     

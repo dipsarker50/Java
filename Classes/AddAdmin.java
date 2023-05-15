@@ -5,11 +5,10 @@ import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.nio.file.*;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
-public class AdminDelete implements ActionListener,FocusListener{
+public class AddAdmin implements ActionListener,FocusListener{
     JFrame frame;
     JLabel email_label;
     JLabel pass_label;
@@ -25,11 +24,11 @@ public class AdminDelete implements ActionListener,FocusListener{
     Caret passCaret;
     String User;
 
-    public AdminDelete(String User){
+    public AddAdmin(String User){
 
         this.User=User;
 
-        frame = new JFrame("Admin Delete");
+        frame = new JFrame("Add Admin");
         title = new JLabel("CINEHUB");
         email_label = new JLabel("Email");
         pass_label = new JLabel("Password");
@@ -110,9 +109,9 @@ public class AdminDelete implements ActionListener,FocusListener{
         title.requestFocusInWindow();
 
         frame.add(email_label);
-        // frame.add(pass_label);
+        frame.add(pass_label);
         frame.add(email_TextField);
-        // frame.add(password);
+        frame.add(password);
         frame.add(lgnbutton);
         frame.add(title);
         frame.add(backButton);
@@ -133,7 +132,6 @@ public class AdminDelete implements ActionListener,FocusListener{
          email_TextField.setFont(newFont);
          password.setFont(newFont);
          href.setFont(newFont);
-
          frame.add(background);
          frame.add(panel);
 
@@ -159,97 +157,46 @@ public class AdminDelete implements ActionListener,FocusListener{
        
         String path = "files/Admin.txt";
 
+
         if (e.getSource() == lgnbutton) {
+            int flag = 0;
 
             lgnbutton.setVisible(false);
             lgnbutton.setEnabled(false);
             
 
            try{
-                FileReader fileReader = new FileReader(path);
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                String answer="";
-                int flag =0;
-               
+    
+                    
+                FileWriter fileWriter = new FileWriter(path, true);
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                PrintWriter printWriter = new PrintWriter(bufferedWriter);
 
-                int check = 0;
-                while (bufferedReader.readLine() != null) {
-                    check++;
+                if(email_TextField.getText().contains("@gmail.com")&& (password.getText().length()>=8)){
+                    printWriter.println("==============================");
+                    printWriter.println("Username:"+email_TextField.getText());
+                    printWriter.println("Password"+password.getText());
+                    printWriter.println("==============================");
+
+                    printWriter.close();
+                    flag++;
+
                 }
-                bufferedReader.close();
-
-
-               
-
-                for (int i = 0; i < check; i++){
-
-                    String lines = Files.readAllLines(Paths.get(path)).get(i);
-    
-                    
-                    
-                    if(lines.contains("#delete!")==false){
-                        if(lines.contains("Username:"+email_TextField.getText())){
-                            answer=lines.substring("Username:".length());
-                           
-                         
-                        }
-    
-    
-                    }
-                    
-    
-                        
-                   
-                }
-    
-                    
-                    
-                   
-    
-    
-                    
-                    
-                    
-    
-                        
-                   
-       
-
-
-                try {
-                    Path paths = Paths.get("files/Admin.txt");
-                    String oldLine ="Username:"+answer ;
-                    
-                    if(email_TextField.getText().equals(answer)){
-                        
-                        String newLine ="#Delete!Username:" + email_TextField.getText();
-                        String fileContent = new String(Files.readAllBytes(paths));
-                        fileContent = fileContent.replaceAll(oldLine, newLine);
-                        Files.write(paths, fileContent.getBytes(), StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
-                        flag++;
-                    
-                    }
-                    
-                    
-                    
-                } catch (IOException ep) {
-                    ep.printStackTrace();
-                } 
-
                 
-                if(email_TextField.getText().isEmpty()){
+                    
+                if(email_TextField.getText().isEmpty()||password.getText().isEmpty()){
                     showMessageDialog(null,"Please fill the box correctly.");
                 }
 
                 else if(flag==1){
-                    showMessageDialog(null,"Delete Successful.");
+                    
                     new AdminDashBoard(User);
                     frame.setVisible(false);
                 }
 
                 else{
                     
-                    showMessageDialog(null,"Username Not Found.");
+                    showMessageDialog(null,"Add vaild email & \n 8 digit password.");
 
                 }
 
@@ -262,7 +209,7 @@ public class AdminDelete implements ActionListener,FocusListener{
                 
             
         }
-         catch (IOException ex) {
+         catch (Exception ex) {
                     ex.printStackTrace();
                 }
     }

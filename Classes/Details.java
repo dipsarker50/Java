@@ -2,9 +2,12 @@ package Classes;
 import java.io.*;
 import java.nio.file.*;
 import javax.swing.*;
+
+import Interfaces.IDetails;
+
 import static javax.swing.JOptionPane.showMessageDialog;
 
-public class Details{
+public class Details implements IDetails{
 
 
     public String findDetails(int n,String username){
