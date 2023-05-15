@@ -3,9 +3,9 @@ package Classes;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.*;
 import java.nio.file.*;
+import java.time.*;
 import java.io.*;
 
 
@@ -21,7 +21,7 @@ public class MovieRelaseUpdate implements ActionListener{
 	private DefaultTableModel model;
 	private JTable table;
 	private JScrollPane scroll;
-	private String[] column = {"Movie Name", "Releasing Date"};
+	private String[] column = {"    Movie Name", "    Releasing Date"};
     private String[] rows = new String[6];
 	String user;
 	
@@ -49,7 +49,7 @@ public class MovieRelaseUpdate implements ActionListener{
 		
 		//PROJECT NAME
 		adminlbl = new JLabel("Upcoming Movie");
-		adminlbl.setBounds(460,18,400,40);
+		adminlbl.setBounds(400,18,400,40);
 		adminlbl.setForeground(new Color(255,0,0));
 		adminlbl.setFont(new Font("serif",Font.PLAIN,30));
 		
@@ -74,14 +74,16 @@ public class MovieRelaseUpdate implements ActionListener{
         table.setModel(model);
         table.setBackground(new Color(255,255,255));
         table.setRowHeight(30);
+		table.setFont(new Font("serif",Font.PLAIN,20));
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
 		table.setEnabled(false);
         table.getColumnModel().getColumn(0).setPreferredWidth(240);
         table.getColumnModel().getColumn(1).setPreferredWidth(240);
 		
 
         scroll = new JScrollPane(table);
-        scroll.setBounds(180, 150, 680, 450);
+        scroll.setBounds(260, 150, 480, 450);
         Frame.add(scroll);
 
         String file = "files/UpcomingMovie.txt";
@@ -97,21 +99,57 @@ public class MovieRelaseUpdate implements ActionListener{
             reader.close();
 
             for (int i = 0; i < totalLines; i++)
-			{
-              
-               
-                
-                String lines = Files.readAllLines(Paths.get(file)).get(i);
 
-                
-                if (lines.equals(user))
-				{   
-				
-                    rows[0] = Files.readAllLines(Paths.get(file)).get((i+2)).substring("Movie Name:".length());
-                    rows[1] = Files.readAllLines(Paths.get(file)).get((i + 1)).substring("Releasing Date:".length());
-                    model.addRow(rows);
+
+			{
+				String lines = Files.readAllLines(Paths.get(file)).get((i));
+				String check[]=new String[100];;
+
+				for(int k=1;k<100;k++){
+					
+					check[k]=String.valueOf(k);
+
+		                if(lines.equals(check[k])){
+
+							String test= Files.readAllLines(Paths.get(file)).get((i + 2)).substring("Releasing Date:".length());
+
+							try{
+								if(test.matches("^\\d{4}-\\d{2}-\\d{2}$")){
+
+									LocalDate date = LocalDate.parse(Files.readAllLines(Paths.get(file)).get((i + 2)).substring("Releasing Date:".length()));
+								    if(date.compareTo(LocalDate.now())>0){
+									rows[0] ="   "+ Files.readAllLines(Paths.get(file)).get((i+1)).substring("Movie Name:".length());
+									rows[1] ="   "+ Files.readAllLines(Paths.get(file)).get((i + 2)).substring("Releasing Date:".length());
+									
+									
+									model.addRow(rows);
+
+								}
+								
+	
+								}
+
+							}
+							catch(Exception ex){
+								ex.printStackTrace();
+
+							}
+							
+						
+
+					}
+
+					
+					
+
+					
+				}
+              
                     
-                }
+                			
+                    
+                    
+               
             }
 
         } catch (Exception ex) {
@@ -178,6 +216,11 @@ public class MovieRelaseUpdate implements ActionListener{
 		Frame.setDefaultCloseOperation(Frame.EXIT_ON_CLOSE);
 		Frame.setVisible(true);
 		
+	}
+
+	public void Getvalue(String k){
+
+
 	}
 	
 	

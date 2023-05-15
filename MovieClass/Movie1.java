@@ -2,10 +2,8 @@ package MovieClass;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-
 import static javax.swing.JOptionPane.showMessageDialog;
-import Classes.Dashboard;
+import Classes.*;
 
 
 public class Movie1 extends MovieDetails implements ActionListener {
@@ -131,6 +129,7 @@ public class Movie1 extends MovieDetails implements ActionListener {
         frame.setSize(1000, 700);        
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 

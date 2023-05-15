@@ -204,7 +204,6 @@ public class SignIn extends JFrame implements ActionListener,FocusListener {
                 }
 
                 else if(flag==1 && check1<5){
-                    showMessageDialog(null,"Login Successful.");
                     new Dashboard(uname);
                     frame.setVisible(false);
                     check1=0;

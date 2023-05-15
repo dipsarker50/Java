@@ -14,7 +14,7 @@ public class Getstart implements ActionListener{
     public Getstart(){
 
         background = new JLabel(new ImageIcon("Images/Startback.jpeg"));
-        click = new JButton("Get Start");
+        click = new JButton("Enter");
         frame = new JFrame();
 
         background.setBounds(0, 0, 1000, 800);
@@ -25,6 +25,8 @@ public class Getstart implements ActionListener{
         click.setBackground(new Color(255, 0, 0));
         // click.setOpaque(true);
         // click.setBorderPainted(false);
+
+        click.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         click.addActionListener(this);
 

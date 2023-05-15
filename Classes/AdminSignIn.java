@@ -27,7 +27,7 @@ public class AdminSignIn implements ActionListener,FocusListener{
     public AdminSignIn(){
 
         frame = new JFrame("Admin Login");
-        title = new JLabel("MovieFlox");
+        title = new JLabel("CINEHUB");
         email_label = new JLabel("Email");
         pass_label = new JLabel("Password");
         email_TextField = new JTextField("Please enter your email...");
@@ -191,9 +191,9 @@ public class AdminSignIn implements ActionListener,FocusListener{
                 }
 
                 else if(flag==1){
-                    showMessageDialog(null,"Login Successful.");
-                    // new Dashboard(uname);
-                    // frame.setVisible(false);
+                    
+                    new AdminDashBoard(email_TextField.getText());
+                    frame.setVisible(false);
                 }
 
                 else{

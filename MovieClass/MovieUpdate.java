@@ -12,7 +12,8 @@ import java.nio.file.StandardCopyOption;
 import javax.swing.*;
 import static javax.swing.JOptionPane.showMessageDialog;
 
-import Classes.Dashboard;
+import Classes.AdminDashBoard;
+
 
 public class MovieUpdate extends MovieDetails implements ActionListener {
     
@@ -23,15 +24,15 @@ public class MovieUpdate extends MovieDetails implements ActionListener {
     private JButton movie1upload;
     private JTextField movie1name,priceTextField,genreTextField,yearTextField,ratingTextField;
     private JLabel movie1,rating,price,year,genre;
-    private JLabel slide1,slide2,slide3,slide4;
     private JLabel movie1nametext;
-    private JButton slide1upload,slide2upload,slide3upload,slide4upload;
     JPanel panel1,panel2;
     JLabel background;
     MovieDetails movieDetails;
     String user;
 
-    public MovieUpdate(){
+    public MovieUpdate(String User){
+
+      user = User;
        
        
        frame = new JFrame();
@@ -187,6 +188,7 @@ public class MovieUpdate extends MovieDetails implements ActionListener {
         frame.setSize(1000, 700);        
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
@@ -194,7 +196,7 @@ public class MovieUpdate extends MovieDetails implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==title){
-            new Dashboard(user);
+            new AdminDashBoard(user);
             
         }
 

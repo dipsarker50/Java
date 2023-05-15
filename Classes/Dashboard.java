@@ -56,8 +56,8 @@ public class Dashboard extends Details implements ActionListener{
         panel4 = new JPanel();
         
 
-        profilebtn.setBounds(890, 25, profilebtn.getPreferredSize().width, 40);
-        logoutbtn.setBounds(20, 430,100,40);
+        profilebtn.setBounds(870, 25, profilebtn.getPreferredSize().width, 40);
+        logoutbtn.setBounds(20, 290,100,40);
         background.setBounds(0, 0, 1000, 700);
         title.setBounds(20, 20, 200, 50);
         panel1.setBounds(0, 2, 1000, 80);
@@ -189,7 +189,7 @@ public class Dashboard extends Details implements ActionListener{
         sliderImage[3] = new ImageIcon(movieDetails.findSliderPath(4));
         sliderspace.setIcon(imageResize(0,sliderspace,sliderImage));
 
-        int delay = 3500; // 3.5 seconds
+        int delay = 2500; // 3.5 seconds
         Timer timer = new Timer(delay, new ActionListener() {
             int i = 0;
             public void actionPerformed(ActionEvent e) {
@@ -222,8 +222,8 @@ public class Dashboard extends Details implements ActionListener{
         background.add(searchButton);
         background.add(ticketViewButton);
         background.add(upcomingButton);
-        background.add(noticeButton);
-        background.add(supporButton);
+        // background.add(noticeButton);
+        // background.add(supporButton);
         background.add(movie1name);
         background.add(movie2name);
         background.add(movie3name);
@@ -263,6 +263,7 @@ public class Dashboard extends Details implements ActionListener{
         frame.setSize(1000, 700);        
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
@@ -370,6 +371,11 @@ public class Dashboard extends Details implements ActionListener{
                 showMessageDialog(null,"No Movie Found");
             }
 
+        }
+
+        else if(e.getSource()==upcomingButton){
+            new MovieRelaseUpdate(user);
+            frame.setVisible(false);
         }
        
        

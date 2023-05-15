@@ -1,4 +1,25 @@
 ===========================
-Movie Name:
-Releasing Date:
+0
+Movie Name:hi
+Releasing Date:2023-05-14
 ===========================
+====================
+1
+Movie Name:dip
+Releasing Date:2023-05-16
+====================
+====================
+2
+Movie Name:new movie
+Releasing Date:2024-12-09
+====================
+====================
+3
+Movie Name:Lets Go
+Releasing Date:2024-12-06
+====================
+====================
+4
+Movie Name:Dragon Ball Super
+Releasing Date:2023-5-16
+====================

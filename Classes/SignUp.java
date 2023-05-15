@@ -284,7 +284,7 @@ public class SignUp implements ActionListener,FocusListener {
                         phonecheck++;
 
                     } else {
-                        showMessageDialog(null, "Only available in Bangladeshi Operator.\nCountry code also Nessary");
+                        showMessageDialog(null, "Only available in Bangladeshi Operator.\nCountry code also Necessary");
                     }
                 } else {
                     showMessageDialog(null, "Please Enter vaild Phone number.");
@@ -357,7 +357,6 @@ public class SignUp implements ActionListener,FocusListener {
                 }
 
                 if (k == 1) {
-                    showMessageDialog(null, "Signup Sucessful");
                     new SignIn();
                     frame.setVisible(false);
                 }

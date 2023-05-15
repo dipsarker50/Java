@@ -1,15 +1,15 @@
 ==================================
 start
-movie1path:MovieImage/Movie1/Admin.jpg
+movie1path:MovieImage/Movie1/download.jpeg
 movie2path:MovieImage/Movie2/download (1).jpeg
-movie3path:MovieImage/Movie3/IMG20221023160052 copy.jpg
-movie4path:MovieImage/Movie4/Movie4.jpeg
+movie3path:MovieImage/Movie3/images (1).jpeg
+movie4path:MovieImage/Movie4/images.jpeg
 ==================================
 ==================================
 start2
 movie1name:Evil Dead Rise
 movie2name:John Wick: Chapter 4
-movie3name:F
+movie3name:Guardians of the Galaxy
 movie4name:RRR
 ==================================
 ==================================
@@ -24,27 +24,27 @@ start4
 movierating1:7
 movierating2:demo2
 movierating3:5.5
-movierating4:5.4
+movierating4:7.8
 ==================================
 ==================================
 start5
 movieprice1:500
 movieprice2:500
-movieprice3:500
-movieprice4:demo4
+movieprice3:700
+movieprice4:600
 ==================================
 ==================================
 start6
 moviegenre1:supernatural horror
 moviegenre2:Action/Neo-noir
-moviegenre3:n/a
-moviegenre4:demo4
+moviegenre3:Sci-fi/Action
+moviegenre4:Action/Drama
 ==================================
 ==================================
 start7
 movieyear1:Sunday 3PM
 movieyear2:Monday,3PM
-movieyear3:2025
-movieyear4:2019
+movieyear3:2023
+movieyear4:Sunday 3PM
 ==================================
 
