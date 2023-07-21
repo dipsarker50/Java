@@ -70,3 +70,11 @@ ShowTime:Sunday 3PM
 Quantity:1
 TicketPrice:600
 ====================
+====================
+Username:12@gmail.com
+TicketNumber:486812
+Movie Name:Evil Dead Rise
+ShowTime:Sunday 3PM
+Quantity:4
+TicketPrice:2000
+====================

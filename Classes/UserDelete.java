@@ -148,6 +148,7 @@ public class UserDelete implements ActionListener,FocusListener{
         frame.setLocationRelativeTo(null); //to center screen gui
         frame.setLayout(null);
         panel.setLayout(null);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 

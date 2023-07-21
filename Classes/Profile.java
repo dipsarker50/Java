@@ -110,6 +110,7 @@ public class Profile implements ActionListener {
 
         frame.setSize(400, 400);
         frame.setLayout(null);
+        frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

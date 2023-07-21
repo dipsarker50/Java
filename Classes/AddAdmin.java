@@ -146,6 +146,7 @@ public class AddAdmin implements ActionListener,FocusListener{
         frame.setLocationRelativeTo(null); //to center screen gui
         frame.setLayout(null);
         panel.setLayout(null);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
@@ -175,7 +176,7 @@ public class AddAdmin implements ActionListener,FocusListener{
                 if(email_TextField.getText().contains("@gmail.com")&& (password.getText().length()>=8)){
                     printWriter.println("==============================");
                     printWriter.println("Username:"+email_TextField.getText());
-                    printWriter.println("Password"+password.getText());
+                    printWriter.println("Password:"+password.getText());
                     printWriter.println("==============================");
 
                     printWriter.close();

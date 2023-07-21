@@ -38,6 +38,7 @@ public class Getstart implements ActionListener{
         frame.setSize(1000, 700);        
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
